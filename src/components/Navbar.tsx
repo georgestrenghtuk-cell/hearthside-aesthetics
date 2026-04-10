@@ -9,6 +9,7 @@ const Navbar = () => {
   const links = [
     { label: "Home", href: "/" },
     { label: "Producten", href: "/producten" },
+    { label: "Blog", href: "/blog" },
     { label: "Over Ons", href: "/over-ons" },
     { label: "Contact", href: "/contact" },
   ];
@@ -16,7 +17,7 @@ const Navbar = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-warm-dark/95 backdrop-blur-md border-b border-warm-medium/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-md border-b border-muted-foreground/10">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img src="/logo-no-background.png" alt="Veluwse Pellets" className="h-10 md:h-12" />

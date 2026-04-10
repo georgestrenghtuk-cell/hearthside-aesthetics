@@ -19,11 +19,11 @@ const FadeSection = ({ children, className = "" }: { children: React.ReactNode; 
 const Producten = () => {
   return (
     <Layout>
-      <section className="py-20" style={{ background: "linear-gradient(135deg, hsl(25 40% 12%) 0%, hsl(25 35% 20%) 100%)" }}>
+      <section className="py-20" style={{ background: "linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 14%) 100%)" }}>
         <div className="container mx-auto px-4 text-center">
-          <span className="text-warm-orange text-sm font-semibold uppercase tracking-widest">Ons Assortiment</span>
-          <h1 className="text-3xl md:text-5xl font-bold text-warm-cream mt-3 mb-4">Premium Pellets voor Elke Kachel</h1>
-          <p className="text-warm-cream/70 max-w-xl mx-auto">Van budget-vriendelijk tot premium — wij hebben de perfecte pellet voor uw situatie.</p>
+          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Ons Assortiment</span>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4">Premium Pellets voor Elke Kachel</h1>
+          <p className="text-white/70 max-w-xl mx-auto">Van budget-vriendelijk tot premium — wij hebben de perfecte pellet voor uw situatie.</p>
         </div>
       </section>
 
@@ -31,9 +31,9 @@ const Producten = () => {
         <FadeSection className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product, i) => (
-              <div key={i} className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-warm-orange/5 transition-all hover:-translate-y-1">
+              <div key={i} className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1">
                 {product.tag && <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">{product.tag}</span>}
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-warm-orange/20 to-warm-amber/20 flex items-center justify-center mb-4"><span className="text-2xl">🔥</span></div>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4"><span className="text-2xl">🔥</span></div>
                 <h2 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{product.name}</h2>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{product.description}</p>
                 <span className="text-primary font-bold">{product.price}</span>
@@ -68,7 +68,7 @@ const Producten = () => {
       <section className="py-16" style={{ background: "linear-gradient(135deg, hsl(25 90% 45%) 0%, hsl(35 95% 50%) 100%)" }}>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">Vragen over onze producten?</h2>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-warm-dark text-warm-cream px-10 py-4 rounded-xl text-lg font-bold hover:bg-warm-medium transition-all hover:scale-105 shadow-xl">
+          <Link to="/contact" className="inline-flex items-center gap-2 bg-foreground text-background px-10 py-4 rounded-xl text-lg font-bold hover:bg-foreground/90 transition-all hover:scale-105 shadow-xl">
             Neem Contact Op
           </Link>
         </div>

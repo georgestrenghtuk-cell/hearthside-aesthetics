@@ -8,6 +8,7 @@ import Producten from "./pages/Producten.tsx";
 import OverOns from "./pages/OverOns.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Blog from "./pages/Blog.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/producten" element={<Producten />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/over-ons" element={<OverOns />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

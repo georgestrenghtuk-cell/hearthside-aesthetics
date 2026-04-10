@@ -10,11 +10,11 @@ const FadeSection = ({ children, className = "" }: { children: React.ReactNode; 
 const Contact = () => {
   return (
     <Layout>
-      <section className="py-20" style={{ background: "linear-gradient(135deg, hsl(25 40% 12%) 0%, hsl(25 35% 20%) 100%)" }}>
+      <section className="py-20" style={{ background: "linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 14%) 100%)" }}>
         <div className="container mx-auto px-4 text-center">
-          <span className="text-warm-orange text-sm font-semibold uppercase tracking-widest">Contact</span>
-          <h1 className="text-3xl md:text-5xl font-bold text-warm-cream mt-3 mb-4">Neem Contact Op</h1>
-          <p className="text-warm-cream/70 max-w-xl mx-auto">Heeft u vragen over onze pellets of uw bestelling? Wij helpen u graag!</p>
+          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Contact</span>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4">Neem Contact Op</h1>
+          <p className="text-white/70 max-w-xl mx-auto">Heeft u vragen over onze pellets of uw bestelling? Wij helpen u graag!</p>
         </div>
       </section>
 
