@@ -14,14 +14,6 @@ const Footer = () => {
             <Link to="/producten" className="hover:text-warm-orange transition-colors">Producten</Link>
             <Link to="/over-ons" className="hover:text-warm-orange transition-colors">Over Ons</Link>
             <Link to="/contact" className="hover:text-warm-orange transition-colors">Contact</Link>
-            <a
-              href="https://www.veluwsepellets.nl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-warm-orange transition-colors"
-            >
-              Webshop
-            </a>
           </div>
         </div>
 
