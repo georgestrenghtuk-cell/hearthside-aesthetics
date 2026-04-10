@@ -1,4 +1,5 @@
 import { Flame } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -10,7 +11,6 @@ const HeroSection = () => {
           "linear-gradient(135deg, hsl(25 40% 12%) 0%, hsl(25 35% 18%) 40%, hsl(25 60% 25%) 70%, hsl(25 90% 35%) 100%)",
       }}
     >
-      {/* Decorative warm glow */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-warm-orange/10 rounded-full blur-3xl animate-pulse-warm" />
       <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-warm-amber/8 rounded-full blur-3xl animate-pulse-warm" style={{ animationDelay: "1.5s" }} />
 
@@ -37,23 +37,20 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://www.veluwsepellets.nl"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/producten"
               className="bg-primary hover:bg-warm-amber text-primary-foreground px-8 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 shadow-lg shadow-warm-orange/25"
             >
               Bekijk Assortiment
-            </a>
-            <a
-              href="#producten"
+            </Link>
+            <Link
+              to="/contact"
               className="border border-warm-cream/30 text-warm-cream hover:border-warm-orange hover:text-warm-orange px-8 py-4 rounded-xl text-lg font-medium transition-all"
             >
-              Onze Pellets
-            </a>
+              Neem Contact Op
+            </Link>
           </div>
 
-          {/* Trust badges */}
           <div className="mt-14 flex flex-wrap items-center justify-center gap-6 text-warm-cream/50 text-sm">
             <span>✓ ENplus A1 Gecertificeerd</span>
             <span className="hidden sm:inline">•</span>
@@ -64,7 +61,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );

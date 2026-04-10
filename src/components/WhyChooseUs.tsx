@@ -1,44 +1,24 @@
 import { Leaf, Flame, Sparkles, BadgeEuro } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const benefits = [
-  {
-    icon: Leaf,
-    title: "Duurzaam",
-    description: "Onze pellets zijn gemaakt van restproducten uit duurzaam beheerde bossen. CO₂-neutraal stoken.",
-  },
-  {
-    icon: Flame,
-    title: "Hoge Warmte-afgifte",
-    description: "Maximale energie per kilogram dankzij laag vochtgehalte en hoge densiteit.",
-  },
-  {
-    icon: Sparkles,
-    title: "Schone Verbranding",
-    description: "Minimale asrest en roet — uw kachel en schoorsteen blijven langer schoon.",
-  },
-  {
-    icon: BadgeEuro,
-    title: "Scherpe Prijzen",
-    description: "Rechtstreeks van leverancier, geen tussenpersonen. De beste prijs-kwaliteit verhouding.",
-  },
+  { icon: Leaf, title: "Duurzaam", description: "Onze pellets zijn gemaakt van restproducten uit duurzaam beheerde bossen. CO₂-neutraal stoken." },
+  { icon: Flame, title: "Hoge Warmte-afgifte", description: "Maximale energie per kilogram dankzij laag vochtgehalte en hoge densiteit." },
+  { icon: Sparkles, title: "Schone Verbranding", description: "Minimale asrest en roet — uw kachel en schoorsteen blijven langer schoon." },
+  { icon: BadgeEuro, title: "Scherpe Prijzen", description: "Rechtstreeks van leverancier, geen tussenpersonen. De beste prijs-kwaliteit verhouding." },
 ];
 
 const WhyChooseUs = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section id="waarom" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div ref={ref} className={`container mx-auto px-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         <div className="text-center mb-14">
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">
-            Waarom Veluwse Pellets
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
-            Kwaliteit die u Voelt
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Al jaren de betrouwbare keuze voor duizenden huishoudens in Nederland.
-          </p>
+          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Waarom Veluwse Pellets</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">Kwaliteit die u Voelt</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">Al jaren de betrouwbare keuze voor duizenden huishoudens in Nederland.</p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {benefits.map((benefit, i) => (
             <div key={i} className="flex gap-5 p-6 rounded-2xl hover:bg-muted/50 transition-colors">
