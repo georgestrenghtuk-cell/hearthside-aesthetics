@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import productPlaceholder from "@/assets/product-placeholder.jpg";
 
 const products = [
-  { name: "Forge Pellets", description: "Premium ENplus A1 pellets met hoge warmte-afgifte en minimale asrest.", price: "Vanaf €4,49/zak", tag: "Bestseller" },
-  { name: "Anvil Pellets", description: "Uitstekende kwaliteit pellets voor een constante en efficiënte verbranding.", price: "Vanaf €4,29/zak", tag: "Populair" },
-  { name: "Piniera Pellets", description: "Betrouwbare pellets van naaldhout met een schone verbranding.", price: "Vanaf €4,19/zak", tag: null },
-  { name: "Ten Damme Pellets", description: "Nederlandse kwaliteitspellets, lokaal geproduceerd en duurzaam.", price: "Vanaf €4,39/zak", tag: null },
-  { name: "My Pellets", description: "Betaalbare pellets zonder in te leveren op kwaliteit.", price: "Vanaf €3,99/zak", tag: "Voordelig" },
-  { name: "Pellet Kachel", description: "Ontdek onze selectie pelletkachels voor optimaal comfort thuis.", price: "Bekijk opties", tag: "Nieuw" },
+  { name: "Forge Pellets", description: "Premium ENplus A1 pellets met hoge warmte-afgifte en minimale asrest.", price: "Vanaf €4,49/zak", tag: "Bestseller", image: productPlaceholder },
+  { name: "Anvil Pellets", description: "Uitstekende kwaliteit pellets voor een constante en efficiënte verbranding.", price: "Vanaf €4,29/zak", tag: "Populair", image: productPlaceholder },
+  { name: "Piniera Pellets", description: "Betrouwbare pellets van naaldhout met een schone verbranding.", price: "Vanaf €4,19/zak", tag: null, image: productPlaceholder },
+  { name: "Ten Damme Pellets", description: "Nederlandse kwaliteitspellets, lokaal geproduceerd en duurzaam.", price: "Vanaf €4,39/zak", tag: null, image: productPlaceholder },
+  { name: "My Pellets", description: "Betaalbare pellets zonder in te leveren op kwaliteit.", price: "Vanaf €3,99/zak", tag: "Voordelig", image: productPlaceholder },
+  { name: "Pellet Kachel", description: "Ontdek onze selectie pelletkachels voor optimaal comfort thuis.", price: "Bekijk opties", tag: "Nieuw", image: productPlaceholder },
 ];
 
 const FadeSection = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
