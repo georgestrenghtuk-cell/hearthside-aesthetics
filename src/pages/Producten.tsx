@@ -33,8 +33,10 @@ const Producten = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product, i) => (
               <div key={i} className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1">
-                {product.tag && <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">{product.tag}</span>}
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4"><span className="text-2xl">🔥</span></div>
+{product.tag && <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full z-10">{product.tag}</span>}
+                <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-muted">
+                  <img src={product.image} alt={product.name} loading="lazy" width={640} height={640} className="w-full h-full object-cover" />
+                </div>
                 <h2 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{product.name}</h2>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{product.description}</p>
                 <span className="text-primary font-bold">{product.price}</span>
