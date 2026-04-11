@@ -97,8 +97,8 @@ const Index = () => {
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-primary text-primary" />)}
             </div>
-            <span className="text-white text-xl font-bold">4,9</span>
-            <span className="text-white/60 text-sm">/ 5 — 91 reviews</span>
+            <span className="text-white text-xl font-bold">4,9 / 5</span>
+            <span className="text-sm text-white">— 91 reviews</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Wat Klanten Zeggen</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
