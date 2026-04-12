@@ -3,6 +3,7 @@ import { Flame, Star, ArrowRight, BookOpen } from "lucide-react";
 import Layout from "@/components/Layout";
 import USPBar from "@/components/USPBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import productPlaceholder from "@/assets/product-placeholder.jpg";
 
 const reviews = [
   { name: "Klaas", text: "Prima pellets 👌👌 alleen al om de afbeelding op de zakjes zou je ze moeten kopen!!" },
