@@ -3,6 +3,7 @@ import { Flame, Star, ArrowRight, BookOpen } from "lucide-react";
 import Layout from "@/components/Layout";
 import USPBar from "@/components/USPBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import productPlaceholder from "@/assets/product-placeholder.jpg";
 
 const reviews = [
   { name: "Klaas", text: "Prima pellets 👌👌 alleen al om de afbeelding op de zakjes zou je ze moeten kopen!!" },
@@ -73,15 +74,18 @@ const Index = () => {
           <span className="text-primary text-sm font-semibold uppercase tracking-widest">Populaire Pellets</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">Ontdek Ons Assortiment</h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-10">Van premium tot voordelig — voor elke kachel de juiste pellet.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
             {[
               { name: "Forge Pellets", tag: "Bestseller", price: "Vanaf €4,49/zak" },
               { name: "Anvil Pellets", tag: "Populair", price: "Vanaf €4,29/zak" },
               { name: "My Pellets", tag: "Voordelig", price: "Vanaf €3,99/zak" },
             ].map((p, i) => (
-              <div key={i} className="bg-card rounded-2xl border border-border p-6 text-center">
-                <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">{p.tag}</span>
-                <h3 className="text-lg font-bold text-foreground mt-4 mb-2">{p.name}</h3>
+              <div key={i} className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1">
+                <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full z-10">{p.tag}</span>
+                <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-muted">
+                  <img src={productPlaceholder} alt={p.name} loading="lazy" width={640} height={640} className="w-full h-full object-cover" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{p.name}</h3>
                 <p className="text-primary font-bold text-sm">{p.price}</p>
               </div>
             ))}
