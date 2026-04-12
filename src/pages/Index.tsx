@@ -63,7 +63,9 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      <USPBar />
+      <div className="-mt-16 relative z-10">
+        <USPBar />
+      </div>
 
       {/* Featured products */}
       <section className="py-20 bg-muted/50">
