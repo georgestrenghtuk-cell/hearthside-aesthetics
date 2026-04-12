@@ -26,7 +26,7 @@ const USPBar = () => {
           {usps.map((usp, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-warm-orange/5 transition-all group"
+              className="flex flex-col items-center text-center p-8 rounded-2xl bg-card border-2 border-border hover:border-primary/30 hover:shadow-lg hover:shadow-warm-orange/5 transition-all group"
             >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <usp.icon className="w-7 h-7 text-primary" />
