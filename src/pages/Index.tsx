@@ -30,7 +30,7 @@ const Index = () => {
     <Layout>
       {/* Hero */}
       <section
-        className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[75vh] flex items-center justify-center overflow-hidden"
         style={{
           background: "linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 40%, hsl(25 30% 18%) 70%, hsl(25 90% 35%) 100%)",
         }}
