@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import USPBar from "@/components/USPBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import productPlaceholder from "@/assets/product-placeholder.jpg";
+import heroPellets from "@/assets/hero-pellets.jpg";
 
 const reviews = [
   { name: "Klaas", text: "Prima pellets 👌👌 alleen al om de afbeelding op de zakjes zou je ze moeten kopen!!" },
@@ -30,12 +31,21 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section
-        className="relative min-h-[75vh] flex items-center justify-center overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 40%, hsl(25 30% 18%) 70%, hsl(25 90% 35%) 100%)",
-        }}
-      >
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+        <img
+          src={heroPellets}
+          alt="Premium houtpellets bij een warm vuur"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, hsl(0 0% 5% / 0.85) 0%, hsl(0 0% 8% / 0.7) 40%, hsl(25 30% 15% / 0.6) 70%, hsl(25 90% 25% / 0.55) 100%)",
+          }}
+        />
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-warm" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="animate-fade-in-up max-w-3xl mx-auto">
