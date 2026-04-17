@@ -97,6 +97,24 @@ const ProductDetail = () => {
               ))}
             </div>
           </div>
+
+          <article className="max-w-4xl mx-auto mt-16">
+            <h2 className="text-2xl font-bold text-foreground mb-8">
+              Over {product.name}
+            </h2>
+            <div className="space-y-8">
+              {product.seoDescription.map((section, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                    {section.heading}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {section.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </article>
         </div>
       </section>
 
