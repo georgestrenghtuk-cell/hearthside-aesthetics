@@ -10,6 +10,7 @@ export type Product = {
   image: string;
   specs: { label: string; value: string }[];
   features: string[];
+  seoDescription: { heading: string; body: string }[];
 };
 
 export const products: Product[] = [
