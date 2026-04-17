@@ -17,7 +17,7 @@ const AboutSection = () => {
             <div className="text-center p-6">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4"><MapPin className="w-6 h-6 text-primary" /></div>
               <h3 className="font-bold text-foreground mb-2">Afhaallocaties</h3>
-              <p className="text-muted-foreground text-sm">Heerde • Voorhout • Marum</p>
+              <p className="text-muted-foreground text-sm">Heerde</p>
               <p className="text-muted-foreground text-xs mt-1">Of bezorgd aan uw deur</p>
             </div>
             <div className="text-center p-6">
