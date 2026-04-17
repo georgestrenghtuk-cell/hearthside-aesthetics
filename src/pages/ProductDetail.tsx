@@ -14,14 +14,11 @@ const ProductDetail = () => {
 
   return (
     <Layout>
-      <section
-        className="py-12"
-        style={{ background: "linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 14%) 100%)" }}
-      >
+      <section className="py-8 bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <Link
             to="/producten"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-primary transition-colors text-sm mb-2"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
           >
             <ArrowLeft className="w-4 h-4" /> Terug naar assortiment
           </Link>
