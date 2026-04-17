@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Flame, Star, ArrowRight, BookOpen } from "lucide-react";
+import { Flame, Star, ArrowRight, BookOpen, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Layout from "@/components/Layout";
 import USPBar from "@/components/USPBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -161,6 +162,38 @@ const Index = () => {
               </Link>
             ))}
           </div>
+        </FadeSection>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-muted/50">
+        <FadeSection className="container mx-auto px-4 max-w-3xl">
+          <div className="text-center mb-10">
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest inline-flex items-center gap-2">
+              <HelpCircle className="w-4 h-4" /> FAQ
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">Veelgestelde Vragen</h2>
+            <p className="text-muted-foreground">Antwoorden op de meest gestelde vragen over onze houtpellets.</p>
+          </div>
+          <Accordion type="single" collapsible className="bg-card rounded-2xl border border-border px-6">
+            {[
+              { q: "Wat is ENplus A1 en waarom is het belangrijk?", a: "ENplus A1 is het hoogste Europese kwaliteitskeurmerk voor houtpellets. Het garandeert een hoge calorische waarde, laag asgehalte en schone verbranding. Al onze pellets zijn ENplus A1 gecertificeerd." },
+              { q: "Hoe snel worden mijn pellets geleverd?", a: "We leveren doorgaans binnen 3 werkdagen door heel Nederland. Bij grote bestellingen plannen we een afspraak in die u uitkomt." },
+              { q: "Kan ik achteraf betalen?", a: "Ja! U betaalt pas na levering. Zo bent u verzekerd van een veilige en zorgeloze aankoop." },
+              { q: "Welke pellets passen het beste bij mijn kachel?", a: "De meeste moderne pelletkachels werken uitstekend met onze ENplus A1 pellets. Voor specifiek advies kunt u altijd contact met ons opnemen." },
+              { q: "Hoe sla ik houtpellets het beste op?", a: "Bewaar de zakken op een droge, goed geventileerde plaats, bij voorkeur op een pallet. Vermijd direct contact met de vloer en vocht." },
+              { q: "Bieden jullie ook kortingen bij grote afnames?", a: "Ja, bij bestellingen per pallet of meerdere pallets bieden we aantrekkelijke staffelkortingen. Neem contact op voor een offerte op maat." },
+            ].map((item, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-border last:border-0">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </FadeSection>
       </section>
 
