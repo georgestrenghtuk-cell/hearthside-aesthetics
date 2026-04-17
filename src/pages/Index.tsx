@@ -5,6 +5,7 @@ import USPBar from "@/components/USPBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import productPlaceholder from "@/assets/product-placeholder.jpg";
 import heroPellets from "@/assets/hero-pellets.jpg";
+import { products } from "@/data/products";
 
 const reviews = [
   { name: "Klaas", text: "Prima pellets 👌👌 alleen al om de afbeelding op de zakjes zou je ze moeten kopen!!" },
@@ -86,19 +87,26 @@ const Index = () => {
           <p className="text-muted-foreground max-w-xl mx-auto mb-10">Van premium tot voordelig — voor elke kachel de juiste pellet.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
             {[
-              { name: "Forge Pellets", tag: "Bestseller", price: "Vanaf €4,49/zak" },
-              { name: "Anvil Pellets", tag: "Populair", price: "Vanaf €4,29/zak" },
-              { name: "My Pellets", tag: "Voordelig", price: "Vanaf €3,99/zak" },
-            ].map((p, i) => (
-              <div key={i} className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1">
-                <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full z-10">{p.tag}</span>
-                <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-muted">
-                  <img src={productPlaceholder} alt={p.name} loading="lazy" width={640} height={640} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{p.name}</h3>
-                <p className="text-primary font-bold text-sm">{p.price}</p>
-              </div>
-            ))}
+              { slug: "forge-pellets", name: "Forge Pellets", tag: "Bestseller", price: "Vanaf €4,49/zak" },
+              { slug: "anvil-pellets", name: "Anvil Pellets", tag: "Populair", price: "Vanaf €4,29/zak" },
+              { slug: "my-pellets", name: "My Pellets", tag: "Voordelig", price: "Vanaf €3,99/zak" },
+            ].map((p) => {
+              const product = products.find((pr) => pr.slug === p.slug);
+              return (
+                <Link
+                  to={`/producten/${p.slug}`}
+                  key={p.slug}
+                  className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1 text-left"
+                >
+                  <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md">{p.tag}</span>
+                  <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-muted">
+                    <img src={product?.image ?? productPlaceholder} alt={p.name} loading="lazy" width={640} height={640} className="w-full h-full object-cover" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{p.name}</h3>
+                  <p className="text-primary font-bold text-sm">{p.price}</p>
+                </Link>
+              );
+            })}
           </div>
           <Link to="/producten" className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-primary-foreground px-8 py-3 rounded-xl font-semibold transition-all hover:scale-105">
             Bekijk Alle Producten <ArrowRight className="w-4 h-4" />
