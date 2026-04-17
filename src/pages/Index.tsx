@@ -203,7 +203,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">Klaar voor Warme Winters?</h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-10 text-lg">Bestel vandaag nog en geniet van snelle levering en betaling na ontvangst.</p>
           <Link to="/producten" className="inline-flex items-center gap-2 bg-foreground text-background px-10 py-4 rounded-xl text-lg font-bold hover:bg-foreground/90 transition-all hover:scale-105 shadow-xl">
-            Bekijk Ons Assortiment
+            Bekijk Ons Assortiment nu!
           </Link>
         </FadeSection>
       </section>
