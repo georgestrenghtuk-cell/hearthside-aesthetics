@@ -1,16 +1,8 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import productPlaceholder from "@/assets/product-placeholder.jpg";
-
-const products = [
-  { name: "Forge Pellets", description: "Premium ENplus A1 pellets met hoge warmte-afgifte en minimale asrest.", price: "Vanaf €4,49/zak", tag: "Bestseller", image: productPlaceholder },
-  { name: "Anvil Pellets", description: "Uitstekende kwaliteit pellets voor een constante en efficiënte verbranding.", price: "Vanaf €4,29/zak", tag: "Populair", image: productPlaceholder },
-  { name: "Piniera Pellets", description: "Betrouwbare pellets van naaldhout met een schone verbranding.", price: "Vanaf €4,19/zak", tag: null, image: productPlaceholder },
-  { name: "Ten Damme Pellets", description: "Nederlandse kwaliteitspellets, lokaal geproduceerd en duurzaam.", price: "Vanaf €4,39/zak", tag: null, image: productPlaceholder },
-  { name: "My Pellets", description: "Betaalbare pellets zonder in te leveren op kwaliteit.", price: "Vanaf €3,99/zak", tag: "Voordelig", image: productPlaceholder },
-  { name: "Pellet Kachel", description: "Ontdek onze selectie pelletkachels voor optimaal comfort thuis.", price: "Bekijk opties", tag: "Nieuw", image: productPlaceholder },
-];
+import { products } from "@/data/products";
 
 const FadeSection = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
   const { ref, isVisible } = useScrollAnimation();
@@ -31,16 +23,25 @@ const Producten = () => {
       <section className="py-16 bg-background">
         <FadeSection className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product, i) => (
-              <div key={i} className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1">
-{product.tag && <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full z-10">{product.tag}</span>}
+            {products.map((product) => (
+              <Link
+                to={`/producten/${product.slug}`}
+                key={product.slug}
+                className="group relative bg-card rounded-2xl border border-border p-6 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1 flex flex-col"
+              >
+                {product.tag && <span className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full z-10">{product.tag}</span>}
                 <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-muted">
                   <img src={product.image} alt={product.name} loading="lazy" width={640} height={640} className="w-full h-full object-cover" />
                 </div>
                 <h2 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{product.name}</h2>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{product.description}</p>
-                <span className="text-primary font-bold">{product.price}</span>
-              </div>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">{product.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-primary font-bold">{product.price}</span>
+                  <span className="text-primary text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Bekijk <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </FadeSection>
