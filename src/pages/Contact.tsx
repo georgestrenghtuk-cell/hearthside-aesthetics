@@ -27,10 +27,13 @@ const Contact = () => {
   const { toast } = useToast();
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", botcheck: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Honeypot: als dit veld ingevuld is, is het een bot — stilletjes negeren
+    if (form.botcheck) return;
+
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       toast({ title: "Controleer je gegevens", description: parsed.error.issues[0].message, variant: "destructive" });
@@ -49,6 +52,7 @@ const Contact = () => {
           message: parsed.data.message,
           subject: `Nieuw contactbericht van ${parsed.data.name}`,
           from_name: "Veluwse Pellets Website",
+          botcheck: "",
         }),
       });
       const data = await res.json();
