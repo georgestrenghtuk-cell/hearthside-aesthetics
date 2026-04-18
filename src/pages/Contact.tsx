@@ -27,10 +27,13 @@ const Contact = () => {
   const { toast } = useToast();
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", botcheck: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Honeypot: als dit veld ingevuld is, is het een bot — stilletjes negeren
+    if (form.botcheck) return;
+
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       toast({ title: "Controleer je gegevens", description: parsed.error.issues[0].message, variant: "destructive" });
@@ -49,12 +52,13 @@ const Contact = () => {
           message: parsed.data.message,
           subject: `Nieuw contactbericht van ${parsed.data.name}`,
           from_name: "Veluwse Pellets Website",
+          botcheck: "",
         }),
       });
       const data = await res.json();
       if (data.success) {
         toast({ title: "Bericht verzonden!", description: "We nemen zo snel mogelijk contact met u op." });
-        setForm({ name: "", email: "", message: "" });
+        setForm({ name: "", email: "", message: "", botcheck: "" });
         setShowForm(false);
       } else {
         throw new Error(data.message || "Versturen mislukt");
@@ -104,6 +108,17 @@ const Contact = () => {
             <div className="bg-card rounded-2xl border border-border p-6 md:p-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-top-4 duration-500">
               <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Stuur ons een bericht</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot — verborgen voor mensen, bots vullen het in */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  checked={!!form.botcheck}
+                  onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? "true" : "" })}
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+                  aria-hidden="true"
+                />
                 <div className="space-y-2">
                   <Label htmlFor="name">Naam</Label>
                   <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Uw naam" maxLength={100} required />
