@@ -111,35 +111,52 @@ const Contact = () => {
 
           {showForm && (
             <div className="bg-card rounded-2xl border border-border p-6 md:p-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-top-4 duration-500">
-              <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Stuur ons een bericht</h2>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Honeypot — verborgen voor mensen, bots vullen het in */}
-                <input
-                  type="checkbox"
-                  name="botcheck"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  checked={!!form.botcheck}
-                  onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? "true" : "" })}
-                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
-                  aria-hidden="true"
-                />
-                <div className="space-y-2">
-                  <Label htmlFor="name">Naam</Label>
-                  <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Uw naam" maxLength={100} required />
+              {success ? (
+                <div className="flex flex-col items-center text-center py-8 animate-scale-in">
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
+                    <div className="relative w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+                      <CheckCircle2 className="w-12 h-12 text-primary animate-scale-in" strokeWidth={2.5} />
+                    </div>
+                  </div>
+                  <h2 className="text-2xl font-bold text-foreground mb-2">Bericht verzonden!</h2>
+                  <p className="text-muted-foreground max-w-sm">
+                    Bedankt voor uw bericht. We nemen zo snel mogelijk contact met u op.
+                  </p>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">E-mail</Label>
-                  <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="uw@email.nl" maxLength={255} required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Bericht</Label>
-                  <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Waar kunnen wij u mee helpen?" maxLength={2000} rows={6} required />
-                </div>
-                <Button type="submit" disabled={submitting} className="w-full" size="lg">
-                  {submitting ? (<><Loader2 className="w-4 h-4 animate-spin" /> Verzenden...</>) : "Verstuur Bericht"}
-                </Button>
-              </form>
+              ) : (
+                <>
+                  <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Stuur ons een bericht</h2>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Honeypot — verborgen voor mensen, bots vullen het in */}
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      checked={!!form.botcheck}
+                      onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? "true" : "" })}
+                      style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+                      aria-hidden="true"
+                    />
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Naam</Label>
+                      <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Uw naam" maxLength={100} required />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">E-mail</Label>
+                      <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="uw@email.nl" maxLength={255} required />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Bericht</Label>
+                      <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Waar kunnen wij u mee helpen?" maxLength={2000} rows={6} required />
+                    </div>
+                    <Button type="submit" disabled={submitting} className="w-full" size="lg">
+                      {submitting ? (<><Loader2 className="w-4 h-4 animate-spin" /> Verzenden...</>) : "Verstuur Bericht"}
+                    </Button>
+                  </form>
+                </>
+              )}
             </div>
           )}
         </FadeSection>
