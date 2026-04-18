@@ -108,6 +108,17 @@ const Contact = () => {
             <div className="bg-card rounded-2xl border border-border p-6 md:p-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-top-4 duration-500">
               <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Stuur ons een bericht</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot — verborgen voor mensen, bots vullen het in */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  checked={!!form.botcheck}
+                  onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? "true" : "" })}
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+                  aria-hidden="true"
+                />
                 <div className="space-y-2">
                   <Label htmlFor="name">Naam</Label>
                   <Input id="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Uw naam" maxLength={100} required />
