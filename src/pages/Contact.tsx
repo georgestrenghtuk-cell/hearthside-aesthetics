@@ -58,9 +58,13 @@ const Contact = () => {
       });
       const data = await res.json();
       if (data.success) {
-        toast({ title: "Bericht verzonden!", description: "We nemen zo snel mogelijk contact met u op." });
         setForm({ name: "", email: "", message: "", botcheck: "" });
-        setShowForm(false);
+        setSuccess(true);
+        // Verberg succesmelding na 6s en sluit het formulier
+        setTimeout(() => {
+          setSuccess(false);
+          setShowForm(false);
+        }, 6000);
       } else {
         throw new Error(data.message || "Versturen mislukt");
       }
