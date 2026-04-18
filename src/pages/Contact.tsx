@@ -58,7 +58,7 @@ const Contact = () => {
       const data = await res.json();
       if (data.success) {
         toast({ title: "Bericht verzonden!", description: "We nemen zo snel mogelijk contact met u op." });
-        setForm({ name: "", email: "", message: "" });
+        setForm({ name: "", email: "", message: "", botcheck: "" });
         setShowForm(false);
       } else {
         throw new Error(data.message || "Versturen mislukt");
