@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MessageSquare, Loader2 } from "lucide-react";
+import { Phone, Mail, MessageSquare, Loader2, CheckCircle2 } from "lucide-react";
 import { z } from "zod";
 import Layout from "@/components/Layout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
