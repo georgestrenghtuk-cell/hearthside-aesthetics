@@ -9,8 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
-// Vervang deze key met je eigen key van https://web3forms.com (gratis)
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+// Web3Forms public access key — veilig in frontend, werkt direct op Vercel
+const WEB3FORMS_ACCESS_KEY = "69f77512-2073-4d04-875b-876a65d81904";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Naam is verplicht").max(100, "Naam te lang"),
