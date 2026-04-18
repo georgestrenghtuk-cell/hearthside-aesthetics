@@ -27,6 +27,7 @@ const Contact = () => {
   const { toast } = useToast();
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "", botcheck: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
